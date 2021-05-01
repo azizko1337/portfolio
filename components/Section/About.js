@@ -2,14 +2,20 @@ import styled from "styled-components";
 import Typed from 'react-typed';
 
 const Section = styled.section`
-	
+	display:flex;
+	flex-direction:column;
 `;
 
 const MainTitle = styled.h1`
 	color:${({theme}) => theme.brightFont};
 	font-size:56px;
 	letter-spacing:2px;
-	padding-left:5px;
+	padding-left:10px;
+
+	@media(orientation:landscape){
+		padding:40px;
+		padding-left:10px;
+	}
 `;
 
 const MyStory = styled.p`
@@ -24,6 +30,21 @@ const MyStory = styled.p`
 	${({altType, theme}) => altType ? `
 		color:${({theme}) => theme.primary};
 	` : null}
+
+	@media(orientation:landscape){
+		max-width:33.3%;
+		margin-right:calc(50%);
+		margin-left:auto;
+
+		${({altType, theme}) => altType ? `
+			color:${({theme}) => theme.primary};
+			max-width:25%;
+			margin:20px;
+			margin-right:auto;
+			margin-left:calc(50% + 25px);
+			padding:30px;
+	` : null}
+	}
 `;
 
 const AboutMeContainer = styled.code`
@@ -35,6 +56,11 @@ const AboutMeContainer = styled.code`
 	background-color: #161616;
 	border-radius:2%;
 	border:2px solid ${({theme}) => theme.secondary};
+
+	@media(orientation:landscape){
+		max-width:50%;
+		margin-left:30%;
+	}
 `;
 
 const AboutMeLine = styled.span`

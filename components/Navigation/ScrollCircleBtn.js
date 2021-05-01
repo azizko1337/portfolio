@@ -14,6 +14,10 @@ const BtnWrapper = styled.button`
 	width:60px;
 	height:60px;
 	padding:5px;
+
+	@media(orientation:landscape){
+		display:none;
+	}
 `;
 
 const Canvas = styled.canvas`

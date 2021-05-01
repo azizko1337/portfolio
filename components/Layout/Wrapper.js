@@ -11,6 +11,10 @@ const WrapperDiv = styled.div`
 	color:white;
 	overflow:hidden;
 
+	@media(orientation:landscape){
+		padding-left:50px;
+	}
+
 	&::before{
 		content:"";
 		display:block;
@@ -21,6 +25,11 @@ const WrapperDiv = styled.div`
 		left:10px;
 		background-color:${({theme}) => theme.quinary};
 		transition: transform .2s;
+
+		@media(orientation:landscape){
+			left:25px;
+			width:10px;
+		}
 	}
 
 	&::after{

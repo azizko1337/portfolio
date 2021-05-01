@@ -22,16 +22,33 @@ const NavWrapper = styled.nav`
 	${({active}) => active ? null : `
 		transform:translateY(100%);
 	`}
+
+	@media(orientation:landscape){
+		top:0;
+		left:50%;
+		bottom:auto;
+		height:10vh;
+		transform:translateY(0);
+		flex-direction:row;
+		width:50%;
+		max-width:800px;
+		padding:0;
+		background-color:transparent;
+	}
 `;
 
 const NavItem = styled.a`
 	display:flex;
-	text-align:center;
 	flex-grow:1;
 	align-items:center;
 	justify-content:center;
 	color:${({theme}) => theme.brightFont};
 	text-decoration:none;	
+	transition:background-color .2s;
+
+	&:hover{
+		background:${({theme}) => theme.tertiary};
+	}
 `;
 
 const Navigation = () => {

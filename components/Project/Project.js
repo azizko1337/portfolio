@@ -6,11 +6,11 @@ import Link from "next/link";
 
 const ProjectContainer = styled.div`
 	width:200%;
-	height:80vh;
+	min-height:80vh;
 	transition: transform .4s;
 	display:flex;
 	justify-content:space-between;
-	margin-top:20px;
+	margin-top:60px;
 	font-size:20px;
 	border-top:5px solid ${({theme}) => theme.primary};
 	padding-top:10px;
@@ -18,6 +18,10 @@ const ProjectContainer = styled.div`
 	${({details}) => details ? `
 		transform:translateX(-50%);
 	` : null}
+
+	@media(orientation:landscape){
+		width:100%;
+	}
 `;
 
 const ProjectThumbnailContainer = styled.div`
@@ -34,15 +38,27 @@ const ProjectDetailsContainer = styled.div`
 	justify-content:space-around;
 	align-items:center;
 	padding:10px;
+
+	@media(orientation:landscape){
+		padding-top:5%;
+	}
 `;
 
 const ProjectTitle = styled.h2`
 	text-align:center;
 	width:100%;
+	@media(orientation:landscape){
+		width:200%;
+		font-size:2rem;
+		padding:10px;
+	}
 
 	${({altVersion, theme}) => altVersion ? `
 		color:${theme.primary};
 		text-align:left;
+		@media(orientation:landscape){
+			display:none;
+		}
 	` : null}
 `;
 const Subtitle = styled.h3`
@@ -52,9 +68,18 @@ const Subtitle = styled.h3`
 	font-variant:small-caps;
 	margin-bottom:5px;
 
+	@media(orientation:landscape){
+		width:200%;
+		color:${({theme}) => theme.primary};
+		padding:10px;
+	}
+
 	${({altVersion, theme}) => altVersion ? `
 		color:${theme.secondary};
 		text-align:left;
+		@media(orientation:landscape){
+			display:none;
+		}
 	` : null}
 `;
 const ImageContainer = styled.div`
@@ -71,6 +96,10 @@ const AccessInformation = styled.span`
 	font-size:16px;
 	padding:4px;
 	font-style:italic;
+
+	@media(orientation:landscape){
+		display:none;
+	}
 `;
 
 const Button = styled.a`
@@ -79,6 +108,14 @@ const Button = styled.a`
 	color:${({theme}) => theme.primary};
 	text-align:center;
 	border:3px solid ${({theme}) => theme.tertiary};
+	cursor:pointer;
+	transition:background-color .2s;
+
+	@media(orientation:landscape){
+		&:hover{
+			background-color:${({theme}) => theme.quinary};
+		}
+	}
 `;
 
 const CodeBox = styled.p`
@@ -91,6 +128,7 @@ const CodeBox = styled.p`
 	width:100%;
 	border:2px solid ${({theme}) => theme.primary};
 	color:${({theme}) => theme.secondary};
+	min-height:40%;
 `;
 const CodeLine = styled.span`
 	display:block;
