@@ -4,7 +4,7 @@ import ScrollCircleBtn from "./ScrollCircleBtn";
 
 const NavWrapper = styled.nav`
 	width:100%;
-	height:45vh;
+	height:38vh;
 	position:fixed;
 	bottom:0;
 	left:0;
@@ -30,6 +30,8 @@ const NavItem = styled.a`
 	flex-grow:1;
 	align-items:center;
 	justify-content:center;
+	color:${({theme}) => theme.brightFont};
+	text-decoration:none;	
 `;
 
 const Navigation = () => {
@@ -39,9 +41,8 @@ const Navigation = () => {
 		<>
 			<ScrollCircleBtn active={isMenuActive} onClick={() => setMenuActive(!isMenuActive)}/>
 			<NavWrapper active={isMenuActive}>
-				<NavItem>About me</NavItem>
-				<NavItem>My skills</NavItem>
-				<NavItem>My projects</NavItem>
+				<NavItem href="#about">About me</NavItem>
+				<NavItem href="#projects">My projects</NavItem>
 				<NavItem>Contact</NavItem>
 			</NavWrapper>
 		</>

@@ -64,6 +64,7 @@ const ScrollCircleBtn = props => {
 
 		document.addEventListener("scroll", setCircleFill);
 		document.addEventListener("resize", setCircleFill);
+		setCircleFill();
   }, [])
   
   return (
