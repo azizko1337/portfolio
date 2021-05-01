@@ -43,7 +43,7 @@ const Navigation = () => {
 			<NavWrapper active={isMenuActive}>
 				<NavItem href="#about">About me</NavItem>
 				<NavItem href="#projects">My projects</NavItem>
-				<NavItem>Contact</NavItem>
+				<NavItem href="#contact">Contact</NavItem>
 			</NavWrapper>
 		</>
 	)

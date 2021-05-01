@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Project from "../Project/Project";
 
 const Section = styled.section`
-	
+	padding-top:30px;
 `;
 
 const MainTitle = styled.h1`

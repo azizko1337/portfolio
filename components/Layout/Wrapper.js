@@ -11,7 +11,7 @@ const WrapperDiv = styled.div`
 	color:white;
 	overflow:hidden;
 
-	&::after{
+	&::before{
 		content:"";
 		display:block;
 		width:5px;
@@ -21,16 +21,29 @@ const WrapperDiv = styled.div`
 		left:10px;
 		background-color:${({theme}) => theme.quinary};
 		transition: transform .2s;
-		
-		${({horizontalBar}) => horizontalBar ? `
-			width:100vw;
-			height:20px;
-			bottom:0;
-			left:0;
-			top:auto;
-			transform:rotate(180deg);
-		` : null}
 	}
+
+	&::after{
+		content:"";
+		display:block;
+		height:15px;
+		width:100vw;
+		position:fixed;
+		bottom:0;
+		left:0;
+		background-color:${({theme}) => theme.quinary};
+		transition: transform .2s;
+		transform:translateY(100%);
+		}
+
+	${({horizontalBar}) => horizontalBar ? `
+			&::before{
+				transform:translate(-200%);
+			}
+			&::after{
+				transform:translateY(0);
+			}
+		` : null}
 `;
 
 const Wrapper = props => {
@@ -42,7 +55,7 @@ const Wrapper = props => {
     				html = document.documentElement;
 			const lastSectionHeight = Math.max((body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)-window.innerHeight);
 			
-			if(lastSectionHeight <= window.scrollY){
+			if(lastSectionHeight <= window.scrollY+20){
 				setBarHorizontal(true);
 			}
 			else{
@@ -52,7 +65,10 @@ const Wrapper = props => {
 	}, []);
 
 	return(
-		<WrapperDiv horizontalBar={isBarHorizontal}>{props.children}</WrapperDiv>
+		<WrapperDiv horizontalBar={isBarHorizontal}>
+			{props.children}
+			
+		</WrapperDiv>
 	);
 }
 
