@@ -162,7 +162,7 @@ const Project = props => {
 	});
 
 	return(
-		<Parallax x={[-100, 100]} tagOuter="figure">
+		<Parallax x={[-20, 20]} tagOuter="figure">
 		<ProjectContainer {...handlers} details={showDetails}>
 			<ProjectThumbnailContainer>
 				<ProjectTitle>{title}</ProjectTitle>

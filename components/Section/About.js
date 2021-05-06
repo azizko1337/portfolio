@@ -26,7 +26,7 @@ const MyStory = styled.p`
 	font-weight:300;
 	text-align:justify;
 	margin-top:10px;
-	min-height:10vh;
+	min-height:200px;
 
 	${({altType, theme}) => altType ? `
 		color:${({theme}) => theme.primary};
