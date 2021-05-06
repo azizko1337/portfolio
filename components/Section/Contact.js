@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { Parallax } from "react-scroll-parallax";
+import { useMediaQuery } from "react-responsive";
 
 const Section = styled.section`
 	padding:50px 0;
@@ -12,20 +14,36 @@ const Section = styled.section`
 	` : null}
 `;
 
+const MainTitle = styled.h1`
+	display:none;
+	color:${({theme}) => theme.brightFont};
+	font-size:56px;
+	letter-spacing:2px;
+	padding-left:5px;
+	margin-right:auto;
+
+	@media(orientation:landscape){
+		display:block;
+	}
+`;
+
+
 const ContactButton = styled.button`
 	width:80%;
 	padding:30px;
-	background-color: #000000;
-	background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+	background: #ad5389;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	border:none;
 	border-radius:10%;
 	color:${({theme}) => theme.brightFont};
-	font-weight:300;
+	font-weight:normal;
 	font-size:20px;
 	transition:background-image .2s, background-color .2s;
 
 	@media(orientation:landscape){
 		max-width:250px;
+		display:none;
 
 		cursor:pointer;
 
@@ -36,13 +54,14 @@ const ContactButton = styled.button`
 
 
 	${({close, theme}) => close ? `
-		padding:10px;
+		padding:10px 30px;
 		background:black;
 		color:${theme.brightFont};
 		position:absolute;
 		bottom:20px;
 		left:50%;
 		transform:translateX(-50%);
+		width:auto;
 
 		@media(orientation:landscape){
 			&:hover{
@@ -59,8 +78,9 @@ const ContactMenu = styled.div`
 	width:100%;
 	height:60vh;
 	z-index:3;
-	background-color: #000000;
-	background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+	background: #ad5389;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	transform:translateY(100%);
 	transition:transform .3s;
 	display:flex;
@@ -70,7 +90,12 @@ const ContactMenu = styled.div`
 	padding-bottom:90px;
 
 	@media(orientation:landscape){
-		max-width:300px;
+		position:static;
+		height:auto;
+		min-height:60vh;
+		transform:translate(0);
+		margin:50px 0;
+		background:transparent;
 	}
 
 	${({active}) => active ? `
@@ -95,9 +120,14 @@ const CallButton = styled.a`
 
 	@media(orientation:landscape){
 		cursor:pointer;
+		width:auto;
+		width:360px;
+		background: #ad5389;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 		&:hover{
-			background-color:#666;
+			filter:contrast(200%);
 		}
 	}
 `;
@@ -112,9 +142,27 @@ const ButtonIcon = styled.div`
 
 const Contact = props => {
 	const [showContactMenu, setShowContactMenu] = useState(false);
+	const isDisplayHorizontal = useMediaQuery({query: "(orientation:landscape)"});
 
+	if(isDisplayHorizontal){
+		return(
+			<Parallax x={[-20, 35]}>
+				<Section id="contact">
+					<MainTitle>Contact with me</MainTitle>
+					<ContactButton onClick={() => setShowContactMenu(!showContactMenu)}>CONTACT</ContactButton>
+					<ContactMenu active={showContactMenu}>
+						<ContactButton close={true} onClick={() => setShowContactMenu(!showContactMenu)}>close</ContactButton>
+						<CallButton href="tel: 505803692"><ButtonIcon img="./icons/phone.svg" /> +48 505 803 692</CallButton>
+						<CallButton href="mailto: antoni.zalupka123@gmail.com"><ButtonIcon img="./icons/email.svg" /> antoni.zalupka123@gmail.com</CallButton>
+					</ContactMenu>
+				</Section>
+			</Parallax>
+		)
+	}
+	
 	return(
 		<Section id="contact">
+			<MainTitle>Contact with me</MainTitle>
 			<ContactButton onClick={() => setShowContactMenu(!showContactMenu)}>CONTACT</ContactButton>
 			<ContactMenu active={showContactMenu}>
 				<ContactButton close={true} onClick={() => setShowContactMenu(!showContactMenu)}>close</ContactButton>

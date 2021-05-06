@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import Image from "next/image";
 import Link from "next/link";
-import { Parallax } from "react-scroll-parallax";
+import { useMediaQuery } from "react-responsive";
 
 const ProjectContainer = styled.div`
 	width:200%;
@@ -41,7 +41,7 @@ const ProjectDetailsContainer = styled.div`
 	padding:10px;
 
 	@media(orientation:landscape){
-		padding-top:5%;
+		padding-top:100px;
 	}
 `;
 
@@ -136,6 +136,10 @@ const CodeLine = styled.span`
 	text-align:left;
 	text-indent:${({indent}) => (indent || 0)*13}px;
 	border-radius:2%;
+
+	&:hover{
+		background-color:#111;
+	}
 `;
 const CodeLineKey = styled.span`
 	color:cadetblue;
@@ -150,6 +154,7 @@ const CodeLineThisKeyword = styled.span`
 const Project = props => {
 	const {title, subtitle, image, horizontalImage, desc, live, github} = props;
 	const [showDetails, setShowDetails] = useState(false);
+	const isDisplayHorizontal = useMediaQuery({query: "(orientation:landscape)"});
 	const handlers = useSwipeable({
 		onSwiped: (eventData) => {
 			if(eventData.dir==="Left"){
@@ -162,12 +167,11 @@ const Project = props => {
 	});
 
 	return(
-		<Parallax x={[-20, 20]} tagOuter="figure">
 		<ProjectContainer {...handlers} details={showDetails}>
 			<ProjectThumbnailContainer>
 				<ProjectTitle>{title}</ProjectTitle>
 				<Subtitle>{subtitle}</Subtitle>
-				<ImageContainer><Image src={image} layout="fill" objectFit="cover" /></ImageContainer>
+				<ImageContainer><Image src={isDisplayHorizontal ? horizontalImage : image} layout="fill" objectFit="cover" /></ImageContainer>
 				<AccessInformation>Slide left to show details.</AccessInformation>
 			</ProjectThumbnailContainer>
 			<ProjectDetailsContainer>
@@ -189,7 +193,6 @@ const Project = props => {
 				<Link href={github || "#"}><Button>GITHUB</Button></Link>
 			</ProjectDetailsContainer>
 		</ProjectContainer>
-		</Parallax>
 	)
 };
 
