@@ -11,7 +11,7 @@ const ProjectContainer = styled.div`
 	transition: transform .4s;
 	display:flex;
 	justify-content:space-between;
-	margin-top:60px;
+	margin:120px 0;
 	font-size:20px;
 	border-top:5px solid ${({theme}) => theme.primary};
 	padding-top:10px;
