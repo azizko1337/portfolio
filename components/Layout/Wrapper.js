@@ -25,6 +25,7 @@ const WrapperDiv = styled.div`
 		left:10px;
 		background-color:${({theme}) => theme.quinary};
 		transition: transform .2s;
+		z-index:1;
 
 		@media(orientation:landscape){
 			left:25px;

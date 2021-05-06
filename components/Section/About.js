@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Typed from 'react-typed';
+import { Parallax } from "react-scroll-parallax";
 
 const Section = styled.section`
 	display:flex;

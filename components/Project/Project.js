@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import Image from "next/image";
 import Link from "next/link";
+import { Parallax } from "react-scroll-parallax";
 
 const ProjectContainer = styled.div`
 	width:200%;
@@ -161,6 +162,7 @@ const Project = props => {
 	});
 
 	return(
+		<Parallax x={[-100, 100]} tagOuter="figure">
 		<ProjectContainer {...handlers} details={showDetails}>
 			<ProjectThumbnailContainer>
 				<ProjectTitle>{title}</ProjectTitle>
@@ -187,6 +189,7 @@ const Project = props => {
 				<Link href={github || "#"}><Button>GITHUB</Button></Link>
 			</ProjectDetailsContainer>
 		</ProjectContainer>
+		</Parallax>
 	)
 };
 

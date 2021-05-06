@@ -12,10 +12,6 @@ const GlobalStyle = createGlobalStyle`
 		scroll-behavior:smooth;
 	}
 
-	body{
-		
-	}
-
 	::-webkit-scrollbar { width: 8px; height: 3px;}
 	::-webkit-scrollbar-button {  background-color: #410B8C; }
 	::-webkit-scrollbar-track {  background-color: violet;}
@@ -23,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
 	::-webkit-scrollbar-thumb { height: 50px; background-color: #410B8C;}
 	::-webkit-scrollbar-corner { background-color: #646464;}}
 	::-webkit-resizer { background-color: #666 }
-`
+	
+`;
 
 export default GlobalStyle;
