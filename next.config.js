@@ -1,5 +1,7 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
   images: {
-    domains: ['www.scdn.co'],
+    domains: ["www.scdn.co"],
   },
-}
+});
