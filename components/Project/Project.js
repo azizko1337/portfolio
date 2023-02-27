@@ -98,6 +98,10 @@ const ImageContainer = styled.div`
   flex-grow: 1;
   border-radius: 4%;
   overflow: hidden;
+
+  & > img {
+    object-fit: cover;
+  }
 `;
 const AccessInformation = styled.span`
   display: block;
@@ -112,7 +116,7 @@ const AccessInformation = styled.span`
   }
 `;
 
-const Button = styled.a`
+const Button = styled(Link)`
   width: 60%;
   padding: 15px;
   color: ${({ theme }) => theme.primary};
@@ -120,10 +124,28 @@ const Button = styled.a`
   border: 3px solid ${({ theme }) => theme.tertiary};
   cursor: pointer;
   transition: background-color 0.2s;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
 
   @media (orientation: landscape) {
-    &:hover {
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
       background-color: ${({ theme }) => theme.quinary};
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+      z-index: -1;
+    }
+    &:hover {
+      &::before {
+        transform: translateX(0);
+      }
     }
   }
 `;
@@ -162,6 +184,7 @@ const CodeLineThisKeyword = styled.span`
 
 const Project = (props) => {
   const { title, subtitle, image, horizontalImage, desc, live, github } = props;
+
   const [showDetails, setShowDetails] = useState(false);
   const isDisplayHorizontal = useMediaQuery({
     query: "(orientation:landscape)",
@@ -185,8 +208,7 @@ const Project = (props) => {
           <Image
             alt="Project screenshot"
             src={isDisplayHorizontal ? horizontalImage : image}
-            layout="fill"
-            objectFit="cover"
+            fill
           />
         </ImageContainer>
         <AccessInformation>Slide left to show details.</AccessInformation>
@@ -209,12 +231,12 @@ const Project = (props) => {
           <CodeLine>{"}"}</CodeLine>
         </CodeBox>
 
-        <Link passHref href={live || "#"}>
-          <Button>LIVE</Button>
-        </Link>
-        <Link passHref href={github || "#"}>
-          <Button>GITHUB</Button>
-        </Link>
+        <Button passHref href={live || "#"}>
+          LIVE
+        </Button>
+        <Button passHref href={github || "#"}>
+          GITHUB
+        </Button>
       </ProjectDetailsContainer>
     </ProjectContainer>
   );

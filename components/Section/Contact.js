@@ -1,14 +1,6 @@
 import styled from "styled-components";
-import { useState } from "react";
 import { Parallax } from "react-scroll-parallax";
-import { useMediaQuery } from "react-responsive";
-
-const Section = styled.section`
-  padding: 50px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import Section from "../Layout/Section";
 
 const MainTitle = styled.h1`
   color: ${({ theme }) => theme.brightFont};
@@ -52,11 +44,29 @@ const CallButton = styled.a`
   ); /* Chrome 10-25, Safari 5.1-6 */
   cursor: pointer;
   position: relative;
+  position: relative;
+  z-index: 1;
 
   @media (orientation: landscape) {
     width: 360px;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: ${({ theme }) => theme.quinary};
+      transform: translateX(100%);
+      transition: transform 0.3s;
+      z-index: -1;
+    }
     &:hover {
       filter: contrast(200%);
+      &::before {
+        transform: translateX(0);
+      }
     }
   }
 `;

@@ -1,7 +1,9 @@
-const withPWA = require("next-pwa");
-
-module.exports = withPWA({
+module.exports = {
+  // nothing
   images: {
     domains: ["www.scdn.co"],
   },
-});
+  compiler: {
+    styledComponents: true,
+  },
+};
