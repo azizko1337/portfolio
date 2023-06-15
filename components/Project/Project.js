@@ -222,10 +222,10 @@ const Project = (props) => {
           <CodeLine>{"}"}</CodeLine>
         </CodeBox>
 
-        <Button passHref href={live || "#"}>
+        <Button passHref target="_blank" href={live || "#"}>
           LIVE
         </Button>
-        <Button passHref href={github || "#"}>
+        <Button passHref target="_blank" href={github || "#"}>
           GITHUB
         </Button>
       </ProjectDetailsContainer>

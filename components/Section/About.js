@@ -75,7 +75,7 @@ const Technology = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 `;
@@ -158,22 +158,22 @@ const About = (props) => {
         <Technology technologyName="Linux">
           <FaLinux />
         </Technology>
-        <Technology>
+        <Technology technologyName="Node.js">
           <FaNodeJs />
         </Technology>
-        <Technology>
+        <Technology technologyName="React">
           <FaReact />
         </Technology>
-        <Technology>
+        <Technology technologyName="styled-components">
           <SiStyledcomponents />
         </Technology>
-        <Technology>
+        <Technology technologyName="HTML 5">
           <SiHtml5 />
         </Technology>
-        <Technology>
+        <Technology technologyName="SASS">
           <FaSass />
         </Technology>
-        <Technology>
+        <Technology technologyName="JavaScript">
           <SiJavascript />
         </Technology>
       </Container>

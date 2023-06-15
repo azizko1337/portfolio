@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Project from "../Project/Project";
 import { AiFillGithub } from "react-icons/ai";
-import Container from "../Layout/Container";
+import Link from "next/link";
 
 const Section = styled.section`
   padding-top: 30px;
@@ -19,10 +19,12 @@ const Projects = (props) => {
 
   return (
     <Section id="projects">
-      <MainTitle>My projects</MainTitle>
-      <Container>
-        <AiFillGithub />
-      </Container>
+      <MainTitle>
+        My projects{" "}
+        <Link target="_blank" href="https://github.com/azizko1337">
+          <AiFillGithub />
+        </Link>
+      </MainTitle>
 
       {(projects || []).map((project) => (
         <Project key={project.id} {...project} />

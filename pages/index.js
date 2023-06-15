@@ -6,7 +6,7 @@ import Contact from "../components/Section/Contact";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 
 const Index = (props) => {
-  const { projects, photos } = props;
+  const { projects } = props;
 
   return (
     <Layout>
@@ -23,15 +23,19 @@ export const getServerSideProps = async () => {
   const projects = [
     {
       id: 1,
-      title: "FL4NEL",
-      subtitle: "web music player",
-      image: "https://www.scdn.co/i/_global/open-graph-default.png",
-      horizontalImage: "https://www.scdn.co/i/_global/open-graph-default.png",
+      title: "TRAININGS-APP",
+      subtitle: "Application created to manage course enrollments.",
+      image: "/images/projects/trainings-app.png",
       desc: [
-        ["language", "javascript"],
+        ["language", "TypeScript"],
         ["framework", "Next.js"],
-        ["modules", "styled-components"],
+        ["styles", "styled-components"],
+        ["auth", "iron-session"],
+        ["database", "Prisma - Postgres"],
+        ["testing", "Jest"],
       ],
+      live: "https://trainings.azalupka.cc",
+      github: "https://github.com/azizko1337/trainings-app",
     },
   ];
 
