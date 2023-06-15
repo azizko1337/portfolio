@@ -25,6 +25,7 @@ export const getServerSideProps = async () => {
       id: 1,
       title: "TRAININGS-APP",
       subtitle: "Application created to manage course enrollments.",
+      horizontalImage: "/images/projects/trainings-app.png",
       image: "/images/projects/trainings-app.png",
       desc: [
         ["language", "TypeScript"],
