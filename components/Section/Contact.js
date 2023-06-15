@@ -86,25 +86,23 @@ const ButtonIcon = styled.div`
 
 const Contact = (props) => {
   return (
-    <Parallax x={[-10, 10]}>
-      <Section id="contact">
-        <MainTitle>Contact with me</MainTitle>
-        <ContactMenu>
-          <CallButton href="tel: 505803692">
-            <ButtonIcon img="./icons/phone.svg" /> +48 505 803 692
-          </CallButton>
-          <CallButton href="mailto: antoni.zalupka123@gmail.com">
-            <ButtonIcon img="./icons/email.svg" /> antoni.zalupka123@gmail.com
-          </CallButton>
-          <CallButton
-            target="_blank"
-            href="https://www.linkedin.com/in/antoni-za%C5%82upka-ab697a1b6/"
-          >
-            <ButtonIcon img="./icons/email.svg" /> LINKEDIN
-          </CallButton>
-        </ContactMenu>
-      </Section>
-    </Parallax>
+    <Section id="contact">
+      <MainTitle>Contact right now</MainTitle>
+      <ContactMenu>
+        <CallButton href="tel: 505803692">
+          <ButtonIcon img="./icons/phone.svg" /> +48 505 803 692
+        </CallButton>
+        <CallButton href="mailto: antoni.zalupka123@gmail.com">
+          <ButtonIcon img="./icons/email.svg" /> antoni.zalupka123@gmail.com
+        </CallButton>
+        <CallButton
+          target="_blank"
+          href="https://www.linkedin.com/in/antoni-za%C5%82upka-ab697a1b6/"
+        >
+          <ButtonIcon img="./icons/email.svg" /> LINKEDIN
+        </CallButton>
+      </ContactMenu>
+    </Section>
   );
 };
 

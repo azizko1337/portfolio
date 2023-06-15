@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
 import MainTitle from "../Text/MainTitle";
+import ImageContainer from "../Image/ImageContainer";
+import Image from "next/image";
+import Container from "../Layout/Container";
+import SubTitle from "../Text/SubTitle";
+import { FaLinux, FaNodeJs, FaReact, FaSass } from "react-icons/fa";
+import { SiStyledcomponents, SiJavascript, SiHtml5 } from "react-icons/si";
 
 const Section = styled.section`
   display: flex;
@@ -13,8 +19,10 @@ const MyStory = styled.p`
   letter-spacing: 1px;
   font-weight: 300;
   text-align: justify;
-  margin-top: 10px;
+  margin-top: 30px;
   min-height: 200px;
+  ${({ italic }) => (italic ? "font-style:italic;" : null)}
+  font-size:18px;
 
   ${({ altType, theme }) =>
     altType
@@ -39,6 +47,36 @@ const MyStory = styled.p`
 			padding:40px 30px;
 	`
         : null}
+  }
+`;
+
+const Technology = styled.div`
+  flex-basis: 130px;
+  height: 130px;
+  background-color: ${({ theme }) => theme.secondary};
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  cursor: crosshair;
+  transition: background-color 0.2s;
+  position: relative;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.tertiary};
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: ${({ technologyName }) => `"${technologyName}"`};
+      width: 100%;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
   }
 `;
 
@@ -89,41 +127,56 @@ const CodeName = styled.span`
 `;
 
 const About = (props) => {
-  const calculateMyAge = () => {
-    const today = Date.now();
-    const myBirthsday = Date.UTC(2003, 9, 4);
-
-    let myAge = today - myBirthsday;
-    const YEAR_IN_MS = 1000 * 60 * 60 * 24 * 365.25;
-    const MONTH_IN_MS = 1000 * 60 * 60 * 24 * 30.5;
-    const DAY_IN_MS = 1000 * 60 * 60 * 24;
-
-    let years = Math.floor(myAge / YEAR_IN_MS);
-    myAge = myAge % YEAR_IN_MS;
-    let months = Math.floor(myAge / MONTH_IN_MS);
-    myAge = myAge % MONTH_IN_MS;
-    let days = Math.floor(myAge / DAY_IN_MS);
-
-    return `"${years} years, ${months} months and ${days} days"`;
-  };
-
   return (
     <Section id="about">
-      <MainTitle size="120px" color="darkFont">
+      <MainTitle marginTop="20px" size="80px" color="grayFont">
         Antoni Załupka
       </MainTitle>
-      <MainTitle size="170px" color="secondary">
-        Hi!
-      </MainTitle>
+      <Container marginTop="30px;" rotate>
+        <MainTitle size="170px" color="secondary">
+          Hi!
+        </MainTitle>
+        <SubTitle>
+          FULL STACK DEVELOPER
+          <br />
+          UI DESIGNER
+          <br />
+          GRAPHIC DESIGN IS MY PASSION
+        </SubTitle>
+      </Container>
       <Parallax x={[20, -15]} tagOuter="figure">
-        <MyStory>sadsadsadsadsa</MyStory>
-      </Parallax>
-      <Parallax x={[-20, 20]} tagOuter="figure">
-        <MyStory altType={true}>
-          Despite my interest in front-end, I also try to do backend for my own
-          projects. I have prepared a few examples below.
+        <MyStory italic>
+          I will create a whole application for you tailored to your needs. I'm
+          fan of flat design which means that I will create a simple and
+          intuitive interface.
         </MyStory>
       </Parallax>
+      <MainTitle size="56px" color="brightFont">
+        My technology stack
+      </MainTitle>
+      <Container>
+        <Technology technologyName="Linux">
+          <FaLinux />
+        </Technology>
+        <Technology>
+          <FaNodeJs />
+        </Technology>
+        <Technology>
+          <FaReact />
+        </Technology>
+        <Technology>
+          <SiStyledcomponents />
+        </Technology>
+        <Technology>
+          <SiHtml5 />
+        </Technology>
+        <Technology>
+          <FaSass />
+        </Technology>
+        <Technology>
+          <SiJavascript />
+        </Technology>
+      </Container>
     </Section>
   );
 };

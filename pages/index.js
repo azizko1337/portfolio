@@ -33,30 +33,6 @@ export const getServerSideProps = async () => {
         ["modules", "styled-components"],
       ],
     },
-    {
-      id: 2,
-      title: "FL4NEL",
-      subtitle: "web music player",
-      image: "https://www.scdn.co/i/_global/open-graph-default.png",
-      horizontalImage: "https://www.scdn.co/i/_global/open-graph-default.png",
-      desc: [
-        ["language", "javascript"],
-        ["framework", "Next.js"],
-        ["modules", "styled-components"],
-      ],
-    },
-    {
-      id: 3,
-      title: "FL4NEL",
-      subtitle: "web music player",
-      image: "https://www.scdn.co/i/_global/open-graph-default.png",
-      horizontalImage: "https://www.scdn.co/i/_global/open-graph-default.png",
-      desc: [
-        ["language", "javascript"],
-        ["framework", "Next.js"],
-        ["modules", "styled-components"],
-      ],
-    },
   ];
 
   return {

@@ -4,6 +4,7 @@ import { useSwipeable } from "react-swipeable";
 import Image from "next/image";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
+import ImageContainer from "../Image/ImageContainer";
 
 const ProjectContainer = styled.div`
   width: 200%;
@@ -92,17 +93,7 @@ const Subtitle = styled.h3`
 	`
       : null}
 `;
-const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  flex-grow: 1;
-  border-radius: 4%;
-  overflow: hidden;
 
-  & > img {
-    object-fit: cover;
-  }
-`;
 const AccessInformation = styled.span`
   display: block;
   font-weight: 300;

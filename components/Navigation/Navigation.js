@@ -67,7 +67,6 @@ const Navigation = () => {
         <NavItem href="#about">About me</NavItem>
         <NavItem href="#projects">My projects</NavItem>
         <NavItem href="#contact">Contact</NavItem>
-        <NavItem href="#photographies">Photographies</NavItem>
       </NavWrapper>
     </>
   );

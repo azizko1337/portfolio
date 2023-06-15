@@ -35,14 +35,14 @@ const WrapperDiv = styled.div`
 
     @media (orientation: landscape) {
       left: 25px;
-      width: 10px;
+      width: 7px;
     }
   }
 
   &::after {
     content: "";
     display: block;
-    height: 15px;
+    height: 10px;
     width: 100vw;
     position: fixed;
     bottom: 0;

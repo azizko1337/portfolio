@@ -6,6 +6,9 @@ const MainTitle = styled.h1`
   letter-spacing: 2px;
   padding-left: 5px;
   margin-right: auto;
+  line-height: 75%;
+  margin-bottom: 30px;
+  ${({ marginTop }) => (marginTop ? `margin-top: ${marginTop};` : null)}
 `;
 
 export default MainTitle;
