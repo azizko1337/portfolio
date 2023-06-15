@@ -132,7 +132,7 @@ const About = (props) => {
       <MainTitle marginTop="20px" size="80px" color="grayFont">
         Antoni Załupka
       </MainTitle>
-      <Container marginTop="30px;" rotate>
+      <Container marginTop="30px;" rotated>
         <MainTitle size="170px" color="secondary">
           Hi!
         </MainTitle>

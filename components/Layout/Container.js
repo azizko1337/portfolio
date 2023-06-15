@@ -12,8 +12,8 @@ const Container = styled.div`
   gap: 20px;
   justify-content: center;
 
-  ${({ rotate }) =>
-    rotate
+  ${({ rotated }) =>
+    rotated
       ? `@media (orientation: portrait) {
     flex-direction: column-reverse;
   }`
