@@ -8,7 +8,7 @@ const ImageContainer = styled.div`
   ${({ rounded }) => (rounded ? "border-radius:50%;" : null)}
 
   & > img {
-    object-fit: contain;
+    object-fit: cover;
     ${({ gray }) => (gray ? "filter:grayscale(30%);" : null)}
   }
 `;
