@@ -92,8 +92,8 @@ const Contact = (props) => {
         <CallButton href="tel: 505803692">
           <ButtonIcon img="./icons/phone.svg" /> +48 505 803 692
         </CallButton>
-        <CallButton href="mailto: antoni.zalupka123@gmail.com">
-          <ButtonIcon img="./icons/email.svg" /> antoni.zalupka123@gmail.com
+        <CallButton href="mailto: contact@azalupka.cc">
+          <ButtonIcon img="./icons/email.svg" /> contact@azalupka.cc
         </CallButton>
         <CallButton
           target="_blank"
