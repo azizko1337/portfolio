@@ -17,7 +17,7 @@ const NavWrapper = styled.nav`
   flex-direction: column;
   justify-content: center;
   padding-bottom: 75px;
-  z-index: 1;
+  z-index: 2;
 
   ${({ active }) =>
     active
